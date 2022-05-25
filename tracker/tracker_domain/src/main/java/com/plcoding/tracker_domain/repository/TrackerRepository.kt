@@ -7,7 +7,7 @@ import java.time.LocalDate
 
 interface TrackerRepository {
 
-	fun searchFood(
+	suspend fun searchFood(
 		query: String,
 		page: Int,
 		pageSize: Int
