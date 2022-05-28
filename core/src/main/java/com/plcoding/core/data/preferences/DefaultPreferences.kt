@@ -7,7 +7,7 @@ import com.plcoding.core.domain.model.GoalType
 import com.plcoding.core.domain.model.UserInfo
 import com.plcoding.core.domain.preferences.Preferences
 
-class DefaultPreferences(private val sharedPreferences: SharedPreferences): Preferences {
+class DefaultPreferences(private val sharedPreferences: SharedPreferences) : Preferences {
 	override fun saveGender(gender: Gender) {
 		sharedPreferences.edit()
 			.putString(KEY_GENDER, gender.name)
@@ -86,6 +86,17 @@ class DefaultPreferences(private val sharedPreferences: SharedPreferences): Pref
 		)
 	}
 
+	override fun saveShouldShowOnboarding(shouldShowOnboarding: Boolean) {
+		sharedPreferences.edit()
+			.putBoolean(KEY_SHOULD_SHOW_ONBOARDING, shouldShowOnboarding)
+			.apply()
+	}
+
+	override fun loadShouldShowOnboarding(): Boolean {
+		return sharedPreferences
+			.getBoolean(KEY_SHOULD_SHOW_ONBOARDING, true)
+	}
+
 	companion object {
 		private const val KEY_GENDER = "gender"
 		private const val KEY_AGE = "age"
@@ -96,5 +107,7 @@ class DefaultPreferences(private val sharedPreferences: SharedPreferences): Pref
 		private const val KEY_CARB_RATIO = "carb_ratio"
 		private const val KEY_PROTEIN_RATIO = "protein_ratio"
 		private const val KEY_FAT_RATIO = "fat_ratio"
+
+		private const val KEY_SHOULD_SHOW_ONBOARDING = "should_show_onboading"
 	}
 }

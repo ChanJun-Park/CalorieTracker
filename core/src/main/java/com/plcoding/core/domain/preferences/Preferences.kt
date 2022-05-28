@@ -17,4 +17,7 @@ interface Preferences {
 	fun saveFatRatio(fatRatio: Float)
 
 	fun loadUserInfo(): UserInfo
+
+	fun saveShouldShowOnboarding(shouldShowOnboarding: Boolean)
+	fun loadShouldShowOnboarding(): Boolean
 }
