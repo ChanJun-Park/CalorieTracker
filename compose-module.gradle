@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation Compose.compiler
     implementation Compose.ui
+    implementation Compose.uiTooling
     implementation Compose.uiToolingPreview
     implementation Compose.hiltNavigationCompose
     implementation Compose.material
@@ -51,6 +52,9 @@ dependencies {
 
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
+
+    debugApi Compose.composePreviewCustomView
+    debugApi Compose.composePreviewCustomViewPoolingContainer
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt
