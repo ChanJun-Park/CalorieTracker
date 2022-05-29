@@ -53,7 +53,10 @@ fun NutrientBarInfo(
 		)
 	}
 
-	Box(modifier = modifier) {
+	Box(
+		modifier = modifier,
+		contentAlignment = Alignment.Center
+	) {
 		Canvas(
 			modifier = Modifier
 				.fillMaxWidth()
