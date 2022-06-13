@@ -111,7 +111,7 @@ fun TrackedFoodItem(
 					unit = stringResource(id = R.string.grams),
 					amountTextSize = 16.sp,
 					unitTextSize = 12.sp,
-					nameStyle = MaterialTheme.typography.body2
+					nameTextStyle = MaterialTheme.typography.body2
 				)
 				Spacer(modifier = Modifier.width(spacing.spaceSmall))
 				NutrientInfo(
@@ -120,7 +120,7 @@ fun TrackedFoodItem(
 					unit = stringResource(id = R.string.grams),
 					amountTextSize = 16.sp,
 					unitTextSize = 12.sp,
-					nameStyle = MaterialTheme.typography.body2
+					nameTextStyle = MaterialTheme.typography.body2
 				)
 				Spacer(modifier = Modifier.width(spacing.spaceSmall))
 				NutrientInfo(
@@ -129,7 +129,7 @@ fun TrackedFoodItem(
 					unit = stringResource(id = R.string.grams),
 					amountTextSize = 16.sp,
 					unitTextSize = 12.sp,
-					nameStyle = MaterialTheme.typography.body2
+					nameTextStyle = MaterialTheme.typography.body2
 				)
 			}
 		}
