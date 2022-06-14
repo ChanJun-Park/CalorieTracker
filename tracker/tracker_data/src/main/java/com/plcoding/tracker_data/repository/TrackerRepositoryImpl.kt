@@ -23,9 +23,20 @@ class TrackerRepositoryImpl(
 				query = query,
 				page = page,
 				pageSize = pageSize
-			).products.mapNotNull {
-				it.toTrackableFood()
-			}
+			)
+				.products
+				.filter {
+					val calculatedCalories = it.nutriments.carbohydrates100g * 4 +
+							it.nutriments.proteins100g * 4 +
+							it.nutriments.fat100g * 9
+					val lowerBound = calculatedCalories * 0.99f
+					val upperBound = calculatedCalories * 1.01f
+
+					it.nutriments.energyKcal100g in lowerBound..upperBound
+				}
+				.mapNotNull {
+					it.toTrackableFood()
+				}
 
 			Result.success(result)
 		} catch (e: Exception) {

@@ -14,15 +14,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.plcoding.core.R
 import com.plcoding.core.util.UiEvent
 import com.plcoding.core_ui.LocalSpacing
-import com.plcoding.onboarding_presentation.age.AgeViewModel
 import com.plcoding.onboarding_presentation.components.ActionButton
 import com.plcoding.onboarding_presentation.components.UnitTextField
-import com.plcoding.onboarding_presentation.height.HeightViewModel
 import kotlinx.coroutines.flow.collect
 
 @Composable
 fun WeightScreen(
-	onNavigate: (UiEvent.Navigate) -> Unit,
+	onNextClick: () -> Unit,
 	scaffoldState: ScaffoldState,
 	viewModel: WeightViewModel = hiltViewModel()
 ) {
@@ -32,7 +30,7 @@ fun WeightScreen(
 	LaunchedEffect(key1 = true) {
 		viewModel.uiEvent.collect { event ->
 			when (event) {
-				is UiEvent.Navigate -> onNavigate(event)
+				is UiEvent.Success -> onNextClick()
 				is UiEvent.ShowSnackbar -> {
 					scaffoldState.snackbarHostState.showSnackbar(
 						event.uiText.asString(context)
